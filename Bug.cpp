@@ -1,4 +1,6 @@
 #include "Bug.h"
+#include <iostream>
+using namespace std;
 
 //Bug::Bug(int id, pair<int, int> position, int direction, int size, bool alive, list<pair<int,int>> path)
 //{
@@ -11,7 +13,7 @@
 //}
 
 bool isWayBlocked() {
-
+    //code here
 }
 
 int Bug::getId() const{
@@ -55,3 +57,5 @@ list<pair<int,int>> Bug::getPath() const{
 void Bug::setPath(list<pair<int,int>> path){
     Bug::path = path;
 }
+
+Bug::~Bug() { cout << "~Bug() destructor called.\n"; }

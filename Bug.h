@@ -12,8 +12,8 @@ protected:
     int size;
     bool alive;
     list<pair<int,int>> path;
-    virtual void move() {}
-    bool isWayBlocked() {}
+    virtual void move();
+    bool isWayBlocked();
 
 public:
     int getId() const;
@@ -28,6 +28,8 @@ public:
     void setAlive(bool alive);
     list<pair<int,int>> getPath() const;
     void setPath(list<pair<int,int>> path);
+
+    virtual ~Bug();
 };
 
 #endif //KAYLON_RIORDAN_CA3_CPP_BUG_H
