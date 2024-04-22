@@ -14,10 +14,10 @@ protected:
     int size;
     bool alive;
     list<pair<int,int>> path;
-
-public:
     virtual void move();
     bool isWayBlocked();
+
+public:
     int getId() const;
     void setId(int id);
     pair<int, int> getPosition() const;

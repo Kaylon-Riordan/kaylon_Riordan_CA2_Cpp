@@ -2,21 +2,16 @@
 #define KAYLON_RIORDAN_CA3_CPP_CRAWLER_H
 
 #include "Bug.h"
+#include <utility>
+#include <list>
+#include <iostream>
 
 class Crawler : public Bug {
 protected:
+    Crawler(int id, pair<int, int> position, int direction, int size, bool alive, list<pair<int, int>> path);
     void move();
 
 public:
-    Crawler(int id, pair<int, int> position, int direction, int size, bool alive, list<pair<int,int>> path){
-        this->id = id;
-        this->position = position;
-        this->direction = direction;
-        this->size = size;
-        this->alive = alive;
-        this->path = path;
-    }
-
     ~Crawler();
 };
 
