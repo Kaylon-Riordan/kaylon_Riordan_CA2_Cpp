@@ -6,16 +6,18 @@ using namespace std;
 
 class Bug {
 protected:
+    Bug(int id, pair<int, int> position, int direction, int size, bool alive, list<pair<int, int>> path);
+
     int id;
     pair<int, int> position;
     int direction;
     int size;
     bool alive;
     list<pair<int,int>> path;
-    virtual void move();
-    bool isWayBlocked();
 
 public:
+    virtual void move();
+    bool isWayBlocked();
     int getId() const;
     void setId(int id);
     pair<int, int> getPosition() const;

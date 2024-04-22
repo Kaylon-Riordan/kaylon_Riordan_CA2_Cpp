@@ -1,6 +1,7 @@
 #include <iostream>
+#include "Bug.h"
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+
     return 0;
 }
