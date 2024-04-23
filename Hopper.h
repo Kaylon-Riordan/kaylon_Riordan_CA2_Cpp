@@ -14,7 +14,7 @@ public:
     Hopper(int id, int x, int y, int direction, int size, int hopLength);
     int getHopLength() const;
     void setHopLength(int hopLength);
-
+    string toString();
     ~Hopper();
 };
 

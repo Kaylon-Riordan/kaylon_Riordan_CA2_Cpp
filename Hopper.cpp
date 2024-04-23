@@ -37,6 +37,7 @@ void Hopper::move() {
             setPosition(pos);
             break;
         default:
+            break;
             // default
     }
 
@@ -47,8 +48,19 @@ void Hopper::move() {
 int Hopper::getHopLength() const{
     return hopLength;
 }
+
 void Hopper::setHopLength(int hopLength){
     Hopper::hopLength = hopLength;
+}
+
+string Hopper::toString(){
+    string str = "id: " + to_string(id) + ", position: <" + to_string(position.first) + ", " + to_string(position.second) + ">, direction: "
+                 + to_string(direction) + ", size: " + to_string(size) + ", alive: " + to_string(alive) + ", hop length: " + to_string(hopLength) + ", path: [";
+    for(pair<int, int> pos : path){
+        str += "<" + to_string(pos.first) + ", " + to_string(pos.second) + ">, ";
+    }
+    str += "]";
+    return str;
 }
 
 Hopper::~Hopper() { cout << "~Hopper() destructor called.\n"; }

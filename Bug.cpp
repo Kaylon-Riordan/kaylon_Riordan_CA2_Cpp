@@ -73,6 +73,4 @@ void Bug::setPath(list<pair<int,int>> path){
     Bug::path = path;
 }
 
-
-
 Bug::~Bug() { cout << "~Bug() destructor called.\n"; }

@@ -26,11 +26,22 @@ void Crawler::move() {
             pos.first --;
             break;
         default:
+            break;
             // default
     }
 
     setPosition(pos);
     getPath().push_back(pos);
+}
+
+string Crawler::toString(){
+    string str = "id: " + to_string(id) + ", position: <" + to_string(position.first) + ", " + to_string(position.second) + ">, direction: "
+            + to_string(direction) + ", size: " + to_string(size) + ", alive: " + to_string(alive) + ", path: [";
+    for(pair<int, int> pos : path){
+        str += "<" + to_string(pos.first) + ", " + to_string(pos.second) + ">, ";
+    }
+    str += "]";
+    return str;
 }
 
 Crawler::~Crawler() { cout << "~Crawler() destructor called.\n"; }

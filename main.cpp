@@ -11,5 +11,7 @@ int main() {
 
     Hopper hoben(101, 0, 0, 4, 10, 5);
 
-    carl.
+    cout << carl.toString() << endl;
+
+    cout << hoben.toString() << endl;
 }

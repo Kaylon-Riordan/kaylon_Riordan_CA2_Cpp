@@ -2,6 +2,8 @@
 #define KAYLON_RIORDAN_CA3_CPP_BUG_H
 
 #include <list>
+#include <string>
+
 using namespace std;
 
 class Bug {
@@ -14,7 +16,7 @@ protected:
     int size;
     bool alive;
     list<pair<int,int>> path;
-    virtual void move();
+    virtual void move() = 0;
     bool isWayBlocked();
 
 public:
@@ -30,6 +32,7 @@ public:
     void setAlive(bool alive);
     list<pair<int,int>> getPath() const;
     void setPath(list<pair<int,int>> path);
+    virtual string toString() = 0;
 
     virtual ~Bug();
 };
