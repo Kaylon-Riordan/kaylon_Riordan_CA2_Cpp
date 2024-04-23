@@ -6,7 +6,7 @@ using namespace std;
 
 class Bug {
 protected:
-    Bug(int id, pair<int, int> position, int direction, int size, bool alive, list<pair<int, int>> path);
+    Bug(int id, int x, int y, int direction, int size);
 
     int id;
     pair<int, int> position;

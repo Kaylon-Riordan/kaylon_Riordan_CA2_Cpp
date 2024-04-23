@@ -8,10 +8,10 @@
 
 class Crawler : public Bug {
 protected:
-    Crawler(int id, pair<int, int> position, int direction, int size, bool alive, list<pair<int, int>> path);
     void move();
 
 public:
+    Crawler(int id, int x, int y, int direction, int size);
     ~Crawler();
 };
 

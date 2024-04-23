@@ -11,15 +11,9 @@ protected:
     void move();
 
 public:
-    Hopper(int id, pair<int, int> position, int direction, int size, bool alive, list<pair<int,int>> path, int hopLength){
-        this->id = id;
-        this->position = position;
-        this->direction = direction;
-        this->size = size;
-        this->alive = alive;
-        this->path = path;
-        this->hopLength = hopLength;
-    }
+    Hopper(int id, int x, int y, int direction, int size, int hopLength);
+    int getHopLength() const;
+    void setHopLength(int hopLength);
 
     ~Hopper();
 };

@@ -2,14 +2,15 @@
 #include <iostream>
 using namespace std;
 
-Bug::Bug(int id, pair<int, int> position, int direction, int size, bool alive, list<pair<int,int>> path)
+Bug::Bug(int id, int x, int y, int direction, int size)
 {
     this->id = id;
-    this->position = position;
+    this->position.first = x;
+    this->position.second = y;
     this->direction = direction;
     this->size = size;
-    this->alive = alive;
-    this->path = path;
+    this->alive = true;
+    this->path.push_back(position);
 }
 
 bool Bug::isWayBlocked(){
@@ -71,5 +72,7 @@ list<pair<int,int>> Bug::getPath() const{
 void Bug::setPath(list<pair<int,int>> path){
     Bug::path = path;
 }
+
+
 
 Bug::~Bug() { cout << "~Bug() destructor called.\n"; }
