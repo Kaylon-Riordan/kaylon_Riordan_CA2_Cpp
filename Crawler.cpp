@@ -1,6 +1,4 @@
 #include "Crawler.h"
-#include <iostream>
-using namespace std;
 
 Crawler::Crawler(int id, int x, int y, int direction, int size)
     : Bug(id, x, y, direction, size) {}
@@ -35,10 +33,10 @@ void Crawler::move() {
 }
 
 string Crawler::toString(){
-    string str = "id: " + to_string(id) + ", position: <" + to_string(position.first) + ", " + to_string(position.second) + ">, direction: "
+    string str = "class: crawler, id: " + to_string(id) + ", position: <" + to_string(position.first) + "," + to_string(position.second) + ">, direction: "
             + to_string(direction) + ", size: " + to_string(size) + ", alive: " + to_string(alive) + ", path: [";
     for(pair<int, int> pos : path){
-        str += "<" + to_string(pos.first) + ", " + to_string(pos.second) + ">, ";
+        str += "<" + to_string(pos.first) + "," + to_string(pos.second) + ">,";
     }
     str += "]";
     return str;

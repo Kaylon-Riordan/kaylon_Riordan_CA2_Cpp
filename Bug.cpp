@@ -1,6 +1,4 @@
 #include "Bug.h"
-#include <iostream>
-using namespace std;
 
 Bug::Bug(int id, int x, int y, int direction, int size)
 {

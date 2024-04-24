@@ -3,7 +3,8 @@
 
 #include <list>
 #include <string>
-
+#include <utility>
+#include <iostream>
 using namespace std;
 
 class Bug {

@@ -1,6 +1,4 @@
 #include "Hopper.h"
-#include <iostream>
-using namespace std;
 
 Hopper::Hopper(int id, int x, int y, int direction, int size, int hopLength)
         : Bug(id, x, y, direction, size)
@@ -54,10 +52,10 @@ void Hopper::setHopLength(int hopLength){
 }
 
 string Hopper::toString(){
-    string str = "id: " + to_string(id) + ", position: <" + to_string(position.first) + ", " + to_string(position.second) + ">, direction: "
+    string str = "class: hopper, id: " + to_string(id) + ", position: <" + to_string(position.first) + "," + to_string(position.second) + ">, direction: "
                  + to_string(direction) + ", size: " + to_string(size) + ", alive: " + to_string(alive) + ", hop length: " + to_string(hopLength) + ", path: [";
     for(pair<int, int> pos : path){
-        str += "<" + to_string(pos.first) + ", " + to_string(pos.second) + ">, ";
+        str += "<" + to_string(pos.first) + "," + to_string(pos.second) + ">,";
     }
     str += "]";
     return str;
