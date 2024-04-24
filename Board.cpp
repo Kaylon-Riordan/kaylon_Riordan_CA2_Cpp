@@ -5,7 +5,13 @@ Board::Board()
     this->bugs = inputFileStream("bugs.txt");
 }
 
-void parseLine(const string &strLine, list<Bug*> &bugs) {
+void Board::displayAllBugs() {
+    for(Bug* bugP : bugs){
+        cout << bugP->toString() << endl;
+    }
+}
+
+void Board::parseLine(const string &strLine, list<Bug*> &bugs) {
     stringstream strStream(strLine);
 
     const char DELIMITER = ';'; // as this is specified in the specification
@@ -50,7 +56,7 @@ void parseLine(const string &strLine, list<Bug*> &bugs) {
     }
 }
 
-list<Bug*> inputFileStream(string fileName) {
+list<Bug*> Board::inputFileStream(string fileName) {
     list<Bug*> bugs;
     ifstream inFileStream(fileName); // open file as input file stream (from working directory)
 
@@ -68,3 +74,5 @@ list<Bug*> inputFileStream(string fileName) {
     }
     return bugs;
 }
+
+Board::~Board() { cout << "~Board() destructor called.\n"; }

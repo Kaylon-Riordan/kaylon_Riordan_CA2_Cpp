@@ -16,6 +16,8 @@ private:
 public:
     Board();
 
+    void displayAllBugs();
+
     ~Board();
 };
 

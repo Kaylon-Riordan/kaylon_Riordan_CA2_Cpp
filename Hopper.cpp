@@ -17,26 +17,20 @@ void Hopper::move() {
         case 1:
             pos.second = pos.second - hopLength;
             if(pos.second < 0){pos.second = 0;}
-            setPosition(pos);
-            break;
+            setPosition(pos); break;
         case 2:
             pos.first = pos.first + hopLength;
             if(pos.first > 9){pos.first = 9;}
-            setPosition(pos);
-            break;
+            setPosition(pos); break;
         case 3:
             pos.second = pos.second + hopLength;
             if(pos.second > 9){pos.second = 9;}
-            setPosition(pos);
-            break;
+            setPosition(pos); break;
         case 4:
             pos.first = pos.first - hopLength;
             if(pos.first < 0){pos.first = 0;}
-            setPosition(pos);
-            break;
-        default:
-            break;
-            // default
+            setPosition(pos); break;
+        default: break; // default
     }
 
     setPosition(pos);
@@ -52,8 +46,17 @@ void Hopper::setHopLength(int hopLength){
 }
 
 string Hopper::toString(){
+    string dir;
+    switch(direction) {
+        case 1: dir = "North"; break;
+        case 2: dir = "East"; break;
+        case 3: dir = "South"; break;
+        case 4: dir = "West"; break;
+        default: break; // default
+    }
+
     string str = "class: hopper, id: " + to_string(id) + ", position: <" + to_string(position.first) + "," + to_string(position.second) + ">, direction: "
-                 + to_string(direction) + ", size: " + to_string(size) + ", alive: " + to_string(alive) + ", hop length: " + to_string(hopLength) + ", path: [";
+                 + dir + ", size: " + to_string(size) + ", alive: " + to_string(alive) + ", hop length: " + to_string(hopLength) + ", path: [";
     for(pair<int, int> pos : path){
         str += "<" + to_string(pos.first) + "," + to_string(pos.second) + ">,";
     }
