@@ -15,6 +15,7 @@ public:
     int getHopLength() const;
     void setHopLength(int hopLength);
     string toString();
+
     ~Hopper();
 };
 

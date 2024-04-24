@@ -82,6 +82,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/kaylo/Documents/GitHub/kaylon_Riordan_CA3_Cpp/Board.cpp">
+			<Option target="kaylon_Riordan_CA3_Cpp"/>
+		</Unit>
+		<Unit filename="C:/Users/kaylo/Documents/GitHub/kaylon_Riordan_CA3_Cpp/Board.h">
+			<Option target="kaylon_Riordan_CA3_Cpp"/>
+		</Unit>
 		<Unit filename="C:/Users/kaylo/Documents/GitHub/kaylon_Riordan_CA3_Cpp/Bug.cpp">
 			<Option target="kaylon_Riordan_CA3_Cpp"/>
 		</Unit>

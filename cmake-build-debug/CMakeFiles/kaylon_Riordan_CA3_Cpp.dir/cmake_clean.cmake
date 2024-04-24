@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/kaylon_Riordan_CA3_Cpp.dir/Board.cpp.obj"
+  "CMakeFiles/kaylon_Riordan_CA3_Cpp.dir/Board.cpp.obj.d"
   "CMakeFiles/kaylon_Riordan_CA3_Cpp.dir/Bug.cpp.obj"
   "CMakeFiles/kaylon_Riordan_CA3_Cpp.dir/Bug.cpp.obj.d"
   "CMakeFiles/kaylon_Riordan_CA3_Cpp.dir/Crawler.cpp.obj"

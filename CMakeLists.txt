@@ -9,4 +9,6 @@ add_executable(kaylon_Riordan_CA3_Cpp main.cpp
         Crawler.cpp
         Crawler.h
         Hopper.cpp
-        Hopper.h)
+        Hopper.h
+        Board.h
+        Board.cpp)

@@ -10,6 +10,7 @@ protected:
 public:
     Crawler(int id, int x, int y, int direction, int size);
     string toString();
+
     ~Crawler();
 };
 
