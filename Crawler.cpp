@@ -31,9 +31,11 @@ string Crawler::toString(){
         case 4: dir = "West"; break;
         default: break; // default
     }
+    string live = "true";
+    if(!alive){live = "false";}
 
-    string str = "class: crawler, id: " + to_string(id) + ", position: <" + to_string(position.first) + "," + to_string(position.second)
-            + ">, direction: " + dir + ", size: " + to_string(size) + ", alive: " + to_string(alive) + ", path: [";
+    string str = "Crawler\t\t" + to_string(id) + "\t<" + to_string(position.first) + "," + to_string(position.second)
+            + ">\t\t" + dir + "\t\t" + to_string(size) + "\t\t" + live + "\t\tN/A\t\t[";
     for(pair<int, int> pos : path){
         str += "<" + to_string(pos.first) + "," + to_string(pos.second) + ">,";
     }

@@ -6,6 +6,7 @@ Board::Board()
 }
 
 void Board::displayAllBugs() {
+    cout << "Class:\t\tID:\tPosition:\tDirection:\tSize:\t\tAlive:\t\tHop Length:\tPath:" << endl;
     for(Bug* bugP : bugs){
         cout << bugP->toString() << endl;
     }
