@@ -65,12 +65,12 @@ void Board::movementPhase() {
 }
 
 void Board::fightPhase() {
-    int x = 0; int y; pair<int, int> cell; list<Bug*> inCell; int biggest; int total; vector<Bug*> contenders; int winner;
+    int x = 0; int y; pair<int, int> cell; list<Bug*> inCell; int biggest; int total; list<Bug*> contenders; int winner;
     while(x < 10){
         y = 0;
         while(y < 10){
             cell.first = x; cell.second = y;
-            biggest = 0; total = 0; contenders.clear();
+            biggest = 0; total = 0; inCell.clear(); contenders.clear();
             for(Bug* bugP : bugs){
                 if(bugP->getPosition() == cell){
                     inCell.push_back(bugP);
@@ -85,8 +85,18 @@ void Board::fightPhase() {
                 }
             }
             if(contenders.size() > 0){
+                srand(time(NULL));
+                int win = rand() % contenders.size();
                 for(Bug* bugP : contenders){
-                    winner;
+                    if(win == 0){
+                        bugP->setSize(total);
+                    }
+                    win--;
+                }
+            }
+            for(Bug* bugP : inCell){
+                if(bugP->getSize() < total){
+                    bugP->setAlive(false);
                 }
             }
             y++;
