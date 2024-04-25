@@ -30,7 +30,7 @@ int main() {
                 board.displayAllHistory();
                 break;
             case 6:
-                board.displayAllBugs();
+                board.displayAllCells();
                 break;
             case 7:
                 board.displayAllBugs();

@@ -21,6 +21,8 @@ protected:
     virtual bool isWayBlocked();
 
 public:
+    string getType() const;
+    void setType(string Type);
     int getId() const;
     void setId(int id);
     pair<int, int> getPosition() const;

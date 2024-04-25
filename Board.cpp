@@ -33,6 +33,30 @@ void Board::displayBugByID(int id) {
     }
 }
 
+void Board::displayAllCells(){
+    int x = 0; int y; pair<int, int> pair; bool empty;
+    while(x < 10){
+        y = 0;
+        while(y < 10){
+            empty = true;
+            pair.first = x;
+            pair.second = y;
+            cout << "\n(" << x << "," << y << "):";
+            for(Bug* bugP : bugs){
+                if(bugP->getPosition() == pair){
+                    cout << " ," << bugP->getType() << " " << bugP->getId();
+                    empty = false;
+                }
+            }
+            if(empty){
+                cout << " empty";
+            }
+            y++;
+        }
+        x++;
+    }
+}
+
 void Board::moveAll() {
     for(Bug* bugP : bugs){
         bugP->move();

@@ -29,6 +29,13 @@ bool Bug::isWayBlocked(){
     }
 }
 
+string Bug::getType() const{
+    return type;
+}
+void Bug::setType(string type){
+    Bug::type = type;
+}
+
 int Bug::getId() const{
     return id;
 }
