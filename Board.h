@@ -5,6 +5,7 @@
 #include <fstream>
 #include "Crawler.h"
 #include "Hopper.h"
+#include "Scuttler.h"
 
 class Board {
 private:

@@ -224,6 +224,30 @@ Hopper.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\kaylon_Riordan_CA3_Cpp.dir\build.make CMakeFiles/kaylon_Riordan_CA3_Cpp.dir/Hopper.cpp.s
 .PHONY : Hopper.cpp.s
 
+Scuttler.obj: Scuttler.cpp.obj
+.PHONY : Scuttler.obj
+
+# target to build an object file
+Scuttler.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\kaylon_Riordan_CA3_Cpp.dir\build.make CMakeFiles/kaylon_Riordan_CA3_Cpp.dir/Scuttler.cpp.obj
+.PHONY : Scuttler.cpp.obj
+
+Scuttler.i: Scuttler.cpp.i
+.PHONY : Scuttler.i
+
+# target to preprocess a source file
+Scuttler.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\kaylon_Riordan_CA3_Cpp.dir\build.make CMakeFiles/kaylon_Riordan_CA3_Cpp.dir/Scuttler.cpp.i
+.PHONY : Scuttler.cpp.i
+
+Scuttler.s: Scuttler.cpp.s
+.PHONY : Scuttler.s
+
+# target to generate assembly for a file
+Scuttler.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\kaylon_Riordan_CA3_Cpp.dir\build.make CMakeFiles/kaylon_Riordan_CA3_Cpp.dir/Scuttler.cpp.s
+.PHONY : Scuttler.cpp.s
+
 main.obj: main.cpp.obj
 .PHONY : main.obj
 
@@ -269,6 +293,9 @@ help:
 	@echo ... Hopper.obj
 	@echo ... Hopper.i
 	@echo ... Hopper.s
+	@echo ... Scuttler.obj
+	@echo ... Scuttler.i
+	@echo ... Scuttler.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

@@ -106,6 +106,12 @@
 		<Unit filename="C:/Users/kaylo/Documents/GitHub/kaylon_Riordan_CA3_Cpp/Hopper.h">
 			<Option target="kaylon_Riordan_CA3_Cpp"/>
 		</Unit>
+		<Unit filename="C:/Users/kaylo/Documents/GitHub/kaylon_Riordan_CA3_Cpp/Scuttler.cpp">
+			<Option target="kaylon_Riordan_CA3_Cpp"/>
+		</Unit>
+		<Unit filename="C:/Users/kaylo/Documents/GitHub/kaylon_Riordan_CA3_Cpp/Scuttler.h">
+			<Option target="kaylon_Riordan_CA3_Cpp"/>
+		</Unit>
 		<Unit filename="C:/Users/kaylo/Documents/GitHub/kaylon_Riordan_CA3_Cpp/main.cpp">
 			<Option target="kaylon_Riordan_CA3_Cpp"/>
 		</Unit>

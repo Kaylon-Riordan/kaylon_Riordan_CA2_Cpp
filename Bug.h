@@ -18,7 +18,7 @@ protected:
     int size;
     bool alive;
     list<pair<int,int>> path;
-    bool isWayBlocked();
+    virtual bool isWayBlocked();
 
 public:
     int getId() const;

@@ -11,4 +11,7 @@ add_executable(kaylon_Riordan_CA3_Cpp main.cpp
         Hopper.cpp
         Hopper.h
         Board.h
-        Board.cpp)
+        Board.cpp
+        Scuttler.cpp
+        Scuttler.h
+)

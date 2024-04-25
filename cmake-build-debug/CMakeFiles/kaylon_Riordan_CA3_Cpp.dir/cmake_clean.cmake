@@ -7,6 +7,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/kaylon_Riordan_CA3_Cpp.dir/Crawler.cpp.obj.d"
   "CMakeFiles/kaylon_Riordan_CA3_Cpp.dir/Hopper.cpp.obj"
   "CMakeFiles/kaylon_Riordan_CA3_Cpp.dir/Hopper.cpp.obj.d"
+  "CMakeFiles/kaylon_Riordan_CA3_Cpp.dir/Scuttler.cpp.obj"
+  "CMakeFiles/kaylon_Riordan_CA3_Cpp.dir/Scuttler.cpp.obj.d"
   "CMakeFiles/kaylon_Riordan_CA3_Cpp.dir/main.cpp.obj"
   "CMakeFiles/kaylon_Riordan_CA3_Cpp.dir/main.cpp.obj.d"
   "kaylon_Riordan_CA3_Cpp.exe"

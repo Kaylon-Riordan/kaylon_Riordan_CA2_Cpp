@@ -83,6 +83,10 @@ void Board::parseLine(const string &strLine, list<Bug*> &bugs) {
             // now, instantiate a Hopper and add to list
             bugs.push_back(new Hopper(id, x, y, direction, size, hopLength));
         }
+        if (bug_type == "S") { // if it is Crawler, then read the Crawler fields
+            // now, instantiate a Crawler and add to list
+            bugs.push_back(new Scuttler(id, x, y, direction, size));
+        }
     }
     catch (std::invalid_argument const &e) {
         cout << "Bad input: std::invalid_argument thrown" << '\n';
