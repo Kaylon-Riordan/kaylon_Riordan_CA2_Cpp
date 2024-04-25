@@ -9,6 +9,7 @@ void Crawler::move() {
         pair<int, int> pos = getPosition();
 
         while(isWayBlocked()){
+            srand(time(NULL));
             direction = 1 + (rand() % 4);
         }
 

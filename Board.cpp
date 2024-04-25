@@ -76,6 +76,7 @@ void Board::fightPhase() {
                     inCell.push_back(bugP);
                     total += bugP->getSize();
                     if(bugP->getSize() > biggest){
+                        biggest = bugP->getSize();
                         contenders.clear();
                         contenders.push_back(bugP);
                     }
@@ -85,6 +86,7 @@ void Board::fightPhase() {
                 }
             }
             if(contenders.size() > 0){
+                // source for getting random numbers: https://stackoverflow.com/questions/13896450/rand-returns-the-same-number-each-time-the-program-is-run
                 srand(time(NULL));
                 int win = rand() % contenders.size();
                 for(Bug* bugP : contenders){
