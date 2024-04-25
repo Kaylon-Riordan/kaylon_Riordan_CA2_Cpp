@@ -71,4 +71,41 @@ void Bug::setPath(list<pair<int,int>> path){
     Bug::path = path;
 }
 
+string Bug::toString(){
+    string dir;
+    switch(direction) {
+        case 1: dir = "North"; break;
+        case 2: dir = "East"; break;
+        case 3: dir = "South"; break;
+        case 4: dir = "West"; break;
+        default: break; // default
+    }
+    string live = "Alive!";
+    if(!alive){live = "Dead!";}
+
+    string str = type + "\t\t" + to_string(id) + "\t<" + to_string(position.first) + "," + to_string(position.second)
+                 + ">\t\t" + dir + "\t\t" + to_string(size) + "\t\t" + live + "\t\tN/A";
+    return str;
+}
+
+string Bug::historyToString(){
+    string dir;
+    switch(direction) {
+        case 1: dir = "North"; break;
+        case 2: dir = "East"; break;
+        case 3: dir = "South"; break;
+        case 4: dir = "West"; break;
+        default: break; // default
+    }
+    string live = "Alive!";
+    if(!alive){live = "Dead!";}
+
+    string str = type + "\t\t" + to_string(id) + "\t\t" + live + "\t\t[";
+    for(pair<int, int> pos : path){
+        str += "<" + to_string(pos.first) + "," + to_string(pos.second) + ">,";
+    }
+    str += "]";
+    return str;
+}
+
 Bug::~Bug() { cout << "~Bug() destructor called.\n"; }

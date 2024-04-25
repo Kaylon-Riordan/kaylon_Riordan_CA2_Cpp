@@ -6,10 +6,39 @@ Board::Board()
 }
 
 void Board::displayAllBugs() {
-    cout << "Class:\t\tID:\tPosition:\tDirection:\tSize:\t\tAlive:\t\tHop Length:\tPath:" << endl;
+    cout << "\nClass:\t\tID:\tPosition:\tDirection:\tSize:\t\tStatus:\t\tHop Length:" << endl;
     for(Bug* bugP : bugs){
         cout << bugP->toString() << endl;
     }
+}
+
+void Board::displayAllHistory() {
+    cout << "\nClass:\t\tID:\t\tStatus:\t\tPath:" << endl;
+    for(Bug* bugP : bugs){
+        cout << bugP->historyToString() << endl;
+    }
+}
+
+void Board::displayBugByID(int id) {
+    bool found = false;
+    for(Bug* bugP : bugs){
+        if(bugP->getId() == id){
+            cout << "\nClass:\t\tID:\tPosition:\tDirection:\tSize:\t\tStatus:\t\tHop Length:" << endl;
+            cout << bugP->toString() << endl;
+            found = true;
+        }
+    }
+    if(!found){
+        cout << "No bug was found with the ID " + id << endl;
+    }
+}
+
+const list<Bug *> &Board::getBugs() const {
+    return bugs;
+}
+
+void Board::setBugs(const list<Bug *> &bugs) {
+    Board::bugs = bugs;
 }
 
 void Board::parseLine(const string &strLine, list<Bug*> &bugs) {

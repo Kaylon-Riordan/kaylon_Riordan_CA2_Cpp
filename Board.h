@@ -11,12 +11,16 @@ private:
     list<Bug*> bugs;
 
     void parseLine(const string &strLine, list<Bug*> &bugs);
-    list<Bug*> inputFileStream(string fileName);
 
 public:
     Board();
 
     void displayAllBugs();
+    void displayAllHistory();
+    void displayBugByID(int id);
+    const list<Bug *> &getBugs() const;
+    void setBugs(const list<Bug*> &bugs);
+    list<Bug*> inputFileStream(string fileName);
 
     ~Board();
 };

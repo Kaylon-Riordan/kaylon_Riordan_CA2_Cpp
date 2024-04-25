@@ -11,6 +11,7 @@ class Bug {
 protected:
     Bug(int id, int x, int y, int direction, int size);
 
+    string type;
     int id;
     pair<int, int> position;
     int direction;
@@ -33,7 +34,8 @@ public:
     void setAlive(bool alive);
     list<pair<int,int>> getPath() const;
     void setPath(list<pair<int,int>> path);
-    virtual string toString() = 0;
+    virtual string toString();
+    virtual string historyToString();
 
     virtual ~Bug();
 };
