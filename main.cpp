@@ -24,7 +24,7 @@ int main() {
                 board.displayBugByID(id);
                 break;
             case 4:
-                board.moveAll();
+                board.movementPhase();
                 break;
             case 5:
                 board.displayAllHistory();

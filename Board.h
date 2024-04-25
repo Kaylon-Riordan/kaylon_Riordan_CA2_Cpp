@@ -20,7 +20,8 @@ public:
     void displayAllHistory();
     void displayBugByID(int id);
     void displayAllCells();
-    void moveAll();
+    void movementPhase();
+    void fightPhase();
     const list<Bug *> &getBugs() const;
     void setBugs(const list<Bug*> &bugs);
     list<Bug*> inputFileStream(string fileName);
