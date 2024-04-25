@@ -5,34 +5,36 @@ Hopper::Hopper(int id, int x, int y, int direction, int size, int hopLength)
         {this->type = "Hopper";this->hopLength = hopLength;}
 
 void Hopper::move() {
-    pair<int, int> pos = getPosition();
+    if(alive){
+        pair<int, int> pos = getPosition();
 
-    while(isWayBlocked()){
-        direction = 1 + (rand() % 4);
+        while(isWayBlocked()){
+            direction = 1 + (rand() % 4);
+        }
+
+        switch(direction) {
+            case 1:
+                pos.second = pos.second - hopLength;
+                if(pos.second < 0){pos.second = 0;}
+                setPosition(pos); break;
+            case 2:
+                pos.first = pos.first + hopLength;
+                if(pos.first > 9){pos.first = 9;}
+                setPosition(pos); break;
+            case 3:
+                pos.second = pos.second + hopLength;
+                if(pos.second > 9){pos.second = 9;}
+                setPosition(pos); break;
+            case 4:
+                pos.first = pos.first - hopLength;
+                if(pos.first < 0){pos.first = 0;}
+                setPosition(pos); break;
+            default: break; // default
+        }
+
+        setPosition(pos);
+        getPath().push_back(pos);
     }
-
-    switch(direction) {
-        case 1:
-            pos.second = pos.second - hopLength;
-            if(pos.second < 0){pos.second = 0;}
-            setPosition(pos); break;
-        case 2:
-            pos.first = pos.first + hopLength;
-            if(pos.first > 9){pos.first = 9;}
-            setPosition(pos); break;
-        case 3:
-            pos.second = pos.second + hopLength;
-            if(pos.second > 9){pos.second = 9;}
-            setPosition(pos); break;
-        case 4:
-            pos.first = pos.first - hopLength;
-            if(pos.first < 0){pos.first = 0;}
-            setPosition(pos); break;
-        default: break; // default
-    }
-
-    setPosition(pos);
-    getPath().push_back(pos);
 }
 
 int Hopper::getHopLength() const{

@@ -33,6 +33,12 @@ void Board::displayBugByID(int id) {
     }
 }
 
+void Board::moveAll() {
+    for(Bug* bugP : bugs){
+        bugP->move();
+    }
+}
+
 const list<Bug *> &Board::getBugs() const {
     return bugs;
 }

@@ -18,6 +18,7 @@ public:
     void displayAllBugs();
     void displayAllHistory();
     void displayBugByID(int id);
+    void moveAll();
     const list<Bug *> &getBugs() const;
     void setBugs(const list<Bug*> &bugs);
     list<Bug*> inputFileStream(string fileName);

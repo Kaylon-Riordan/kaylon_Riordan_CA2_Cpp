@@ -18,7 +18,6 @@ protected:
     int size;
     bool alive;
     list<pair<int,int>> path;
-    virtual void move() = 0;
     bool isWayBlocked();
 
 public:
@@ -34,6 +33,7 @@ public:
     void setAlive(bool alive);
     list<pair<int,int>> getPath() const;
     void setPath(list<pair<int,int>> path);
+    virtual void move() = 0;
     virtual string toString();
     virtual string historyToString();
 
