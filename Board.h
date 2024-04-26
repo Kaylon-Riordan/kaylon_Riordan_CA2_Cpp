@@ -25,6 +25,7 @@ public:
     const list<Bug *> &getBugs() const;
     void setBugs(const list<Bug*> &bugs);
     list<Bug*> inputFileStream(string fileName);
+    void OutputFileStream();
 
     ~Board();
 };

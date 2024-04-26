@@ -65,7 +65,8 @@ void Board::movementPhase() {
 }
 
 void Board::fightPhase() {
-    int x = 0; int y; pair<int, int> cell; list<Bug*> inCell; int biggest; int total; list<Bug*> contenders; int winner;
+    int x = 0; int y; int biggest; int total; int winner;
+    pair<int, int> cell; list<Bug*> inCell; list<Bug*> contenders;
     while(x < 10){
         y = 0;
         while(y < 10){
@@ -181,6 +182,26 @@ list<Bug*> Board::inputFileStream(string fileName) {
         cout << "Unable to open file, or file is empty.";
     }
     return bugs;
+}
+
+void Board::OutputFileStream(){
+    std::time_t t = std::time(0);   // get time now
+    std::tm* now = std::localtime(&t);
+    string date, time;
+    date = to_string(now->tm_mday) + "-" + to_string((now->tm_mon + 1)) + "-" + to_string((now->tm_year + 1900));
+    time = to_string(now->tm_hour) + "-" + to_string(now->tm_min);
+
+    ofstream outFileStream("bugs_life_history_" + date + "_" + time + ".txt");
+
+    if ( outFileStream )
+    {
+        for(Bug* bugP : bugs){
+            outFileStream <<  bugP->historyToString() << endl;
+        }
+        outFileStream.close();
+    }
+    else
+        cout << "Unable to open file" << endl;
 }
 
 Board::~Board() { cout << "~Board() destructor called.\n"; }

@@ -36,7 +36,7 @@ int main() {
                 board.displayAllBugs();
                 break;
             case 8:
-                cout << "Exiting program" << endl;
+                board.OutputFileStream();
                 break;
             default:
                 cout << "Unrecognised input" << endl;
