@@ -22,6 +22,7 @@ public:
     void displayAllCells();
     void movementPhase();
     void fightPhase();
+    void runSimulation();
     const list<Bug *> &getBugs() const;
     void setBugs(const list<Bug*> &bugs);
     list<Bug*> inputFileStream(string fileName);

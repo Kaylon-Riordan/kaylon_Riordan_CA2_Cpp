@@ -33,7 +33,7 @@ int main() {
                 board.displayAllCells();
                 break;
             case 7:
-                board.displayAllBugs();
+                board.runSimulation();
                 break;
             case 8:
                 board.OutputFileStream();

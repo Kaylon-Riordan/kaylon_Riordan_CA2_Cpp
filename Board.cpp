@@ -1,4 +1,6 @@
 #include "Board.h"
+#include <stdio.h>
+#include <time.h>
 
 Board::Board()
 {
@@ -73,7 +75,7 @@ void Board::fightPhase() {
             cell.first = x; cell.second = y;
             biggest = 0; total = 0; inCell.clear(); contenders.clear();
             for(Bug* bugP : bugs){
-                if(bugP->getPosition() == cell){
+                if(bugP->getPosition() == cell && bugP->getAlive()){
                     inCell.push_back(bugP);
                     total += bugP->getSize();
                     if(bugP->getSize() > biggest){
@@ -110,6 +112,31 @@ void Board::fightPhase() {
     }
 }
 
+void Board::runSimulation(){ //Code for running method every second from: https://stackoverflow.com/questions/10807681/loop-every-10-second
+    int living =100;
+    double time_counter = 0;
+    clock_t this_time = clock();
+    clock_t last_time = this_time;
+    while(true)
+    {
+        if(living <= 1){break;}
+        this_time = clock();
+        time_counter += (double)(this_time - last_time);
+        last_time = this_time;
+        if(time_counter > (double)(CLOCKS_PER_SEC))
+        {
+            time_counter -= (double)(CLOCKS_PER_SEC);
+            living = 0;
+            movementPhase();
+            for(Bug* bugP : bugs){if(bugP->getAlive()){living++;}}
+            displayAllBugs();
+        }
+    }
+    int winner;
+    for(Bug* bugP : bugs){if(bugP->getAlive()){winner = bugP->getId();}}
+    cout << "Winner is " << to_string(winner) << endl;
+}
+
 const list<Bug *> &Board::getBugs() const {
     return bugs;
 }
@@ -118,7 +145,7 @@ void Board::setBugs(const list<Bug *> &bugs) {
     Board::bugs = bugs;
 }
 
-void Board::parseLine(const string &strLine, list<Bug*> &bugs) {
+void Board::parseLine(const string &strLine, list<Bug*> &bugs) { // Code for parsing lines from: https://github.com/logued/cpp-file-IO-text-file-demo
     stringstream strStream(strLine);
 
     const char DELIMITER = ';'; // as this is specified in the specification
@@ -167,7 +194,7 @@ void Board::parseLine(const string &strLine, list<Bug*> &bugs) {
     }
 }
 
-list<Bug*> Board::inputFileStream(string fileName) {
+list<Bug*> Board::inputFileStream(string fileName) { // code for taking file input from: https://github.com/logued/cpp-file-IO-text-file-demo
     list<Bug*> bugs;
     ifstream inFileStream(fileName); // open file as input file stream (from working directory)
 
@@ -186,7 +213,7 @@ list<Bug*> Board::inputFileStream(string fileName) {
     return bugs;
 }
 
-void Board::OutputFileStream(){
+void Board::OutputFileStream(){ //cod for outputting to file from: https://github.com/logued/cpp-file-IO-text-file-demo
     std::time_t t = std::time(0);   // get time now
     std::tm* now = std::localtime(&t);
     string date, time;
