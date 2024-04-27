@@ -15,3 +15,11 @@ add_executable(kaylon_Riordan_CA3_Cpp main.cpp
         Scuttler.cpp
         Scuttler.h
 )
+
+set(SFML_STATIC_LIBRARIES TRUE)
+set(SFML_DIR C:/SFML/lib/cmake/SFML)
+find_package(SFML COMPONENTS system window graphics audio network REQUIRED)
+
+include_directories(C:/SFML/include)
+target_link_libraries(kaylon_Riordan_CA3_Cpp sfml-system sfml-window sfml-graphics sfml-audio)
+
