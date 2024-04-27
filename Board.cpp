@@ -219,22 +219,22 @@ void Board::OutputFileStream(){ //cod for outputting to file from: https://githu
         cout << "Unable to open file" << endl;
 }
 
-void Board::Graphics(){
+void Board::Graphics(){// code for sfml window based on: https://github.com/delboy8080/SFML_Sample2/blob/master/main.cpp
     srand(time(NULL));
 
-    sf::RenderWindow window(sf::VideoMode(400, 400), "SFML works!");
-    sf::CircleShape character(2.5);
-    character.setPosition(200,390);
+    sf::RenderWindow window(sf::VideoMode(1000, 1000), "SFML works!");
+    sf::CircleShape character(40);
+    character.setPosition(407.5,407.5);
     character.setFillColor(sf::Color::Red);
     vector<sf::RectangleShape> squares;
-    for(int x = 0; x < 80;x ++)
+    for(int x = 0; x < 160;x ++)
     {
-        for(int y=0; y<80;y++)
+        for(int y=0; y<160;y++)
         {
-            sf::RectangleShape cell(sf::Vector2f(5,5));
-            cell.setPosition(x*5, y*5);
-            //cell.setOutlineThickness(1);
-            //cell.setOutlineColor(sf::Color::Black);
+            sf::RectangleShape cell(sf::Vector2f(100,100));
+            cell.setPosition(x*100, y*100);
+            cell.setOutlineThickness(5);
+            cell.setOutlineColor(sf::Color::Black);
             squares.push_back(cell);
         }
     }
@@ -252,23 +252,23 @@ void Board::Graphics(){
                 int y = character.getPosition().y;
                 if(event.key.code == sf::Keyboard::Up)
                 {
-                    if(y> 0)
-                        character.setPosition(x, y-5);
+                    if(y> 100)
+                        character.setPosition(x, y-100);
                 }
                 if(event.key.code == sf::Keyboard::Down)
                 {
-                    if(y<395 )
-                        character.setPosition(x, y+5);
+                    if(y<900 )
+                        character.setPosition(x, y+100);
                 }
                 if(event.key.code == sf::Keyboard::Left)
                 {
-                    if(x> 0)
-                        character.setPosition(x-5, y);
+                    if(x> 100)
+                        character.setPosition(x-100, y);
                 }
                 if(event.key.code == sf::Keyboard::Right)
                 {
-                    if(x<395)
-                        character.setPosition(x+5, y);
+                    if(x<900)
+                        character.setPosition(x+100, y);
                 }
                 if(event.key.code == sf::Keyboard::Space)
                 {
