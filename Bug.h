@@ -20,6 +20,7 @@ protected:
     int size;
     bool alive;
     list<pair<int,int>> path;
+    int eatenBy;
     virtual bool isWayBlocked();
 
 public:
@@ -37,9 +38,11 @@ public:
     void setAlive(bool alive);
     list<pair<int,int>> getPath() const;
     void setPath(list<pair<int,int>> path);
+    int getEatenBy() const;
+    void setEatenBy(int eatenBy);
     virtual void move() = 0;
     virtual string toString();
-    virtual string historyToString();
+    string historyToString();
 
     virtual ~Bug();
 };

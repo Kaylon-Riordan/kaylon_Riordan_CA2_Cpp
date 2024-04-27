@@ -9,6 +9,7 @@ Bug::Bug(int id, int x, int y, int direction, int size)
     this->size = size;
     this->alive = true;
     this->path.push_back(position);
+    this->eatenBy = 0;
 }
 
 bool Bug::isWayBlocked(){
@@ -78,6 +79,13 @@ void Bug::setPath(list<pair<int,int>> path){
     Bug::path = path;
 }
 
+int Bug::getEatenBy() const{
+    return eatenBy;
+}
+void Bug::setEatenBy(int eatenBy){
+    Bug::eatenBy = eatenBy;
+}
+
 string Bug::toString(){
     string dir;
     switch(direction) {
@@ -90,28 +98,20 @@ string Bug::toString(){
     string live = "Alive!";
     if(!alive){live = "Dead!";}
 
-    string str = type + "\t\t" + to_string(id) + "\t<" + to_string(position.first) + "," + to_string(position.second)
+    string str = type + to_string(id) + "\t<" + to_string(position.first) + "," + to_string(position.second)
                  + ">\t\t" + dir + "\t\t" + to_string(size) + "\t\t" + live + "\t\tN/A";
     return str;
 }
 
 string Bug::historyToString(){
-    string dir;
-    switch(direction) {
-        case 1: dir = "North"; break;
-        case 2: dir = "East"; break;
-        case 3: dir = "South"; break;
-        case 4: dir = "West"; break;
-        default: break; // default
-    }
     string live = "Alive!";
-    if(!alive){live = "Dead!";}
+    if(!alive){live = "Eaten by " + to_string(eatenBy);}
 
-    string str = type + "\t\t" + to_string(id) + "\t\t" + live + "\t\t[";
+    string str = type + to_string(id) + "\t[";
     for(pair<int, int> pos : path){
         str += "<" + to_string(pos.first) + "," + to_string(pos.second) + ">,";
     }
-    str += "]";
+    str += live + "]";
     return str;
 }
 

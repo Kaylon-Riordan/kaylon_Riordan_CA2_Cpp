@@ -13,7 +13,7 @@ void Board::displayAllBugs() {
 }
 
 void Board::displayAllHistory() {
-    cout << "\nClass:\t\tID:\t\tStatus:\t\tPath:" << endl;
+    cout << "\nClass:\t\tID:\tPath:" << endl;
     for(Bug* bugP : bugs){
         cout << bugP->historyToString() << endl;
     }
@@ -92,6 +92,7 @@ void Board::fightPhase() {
                 int win = rand() % contenders.size();
                 for(Bug* bugP : contenders){
                     if(win == 0){
+                        winner = bugP-> getId();
                         bugP->setSize(total);
                     }
                     win--;
@@ -99,6 +100,7 @@ void Board::fightPhase() {
             }
             for(Bug* bugP : inCell){
                 if(bugP->getSize() < total){
+                    bugP->setEatenBy(winner);
                     bugP->setAlive(false);
                 }
             }

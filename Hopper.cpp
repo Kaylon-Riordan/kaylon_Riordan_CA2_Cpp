@@ -2,7 +2,7 @@
 
 Hopper::Hopper(int id, int x, int y, int direction, int size, int hopLength)
         : Bug(id, x, y, direction, size)
-        {this->type = "Hopper";this->hopLength = hopLength;}
+        {this->type = "Hopper\t\t";this->hopLength = hopLength;}
 
 void Hopper::move() {
     if(alive){
@@ -34,7 +34,9 @@ void Hopper::move() {
         }
 
         setPosition(pos);
-        getPath().push_back(pos);
+        list<pair<int,int>> newPath = getPath();
+        newPath.push_back(pos);
+        setPath(newPath);
     }
 }
 
@@ -58,7 +60,7 @@ string Hopper::toString(){
     string live = "Alive!";
     if(!alive){live = "Dead!";}
 
-    string str = type + "\t\t" + to_string(id) + "\t<" + to_string(position.first) + "," + to_string(position.second)
+    string str = type + to_string(id) + "\t<" + to_string(position.first) + "," + to_string(position.second)
                  + ">\t\t" + dir + "\t\t" + to_string(size) + "\t\t" + live + "\t\t" + to_string(hopLength);
     return str;
 }

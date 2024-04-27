@@ -2,7 +2,7 @@
 
 Crawler::Crawler(int id, int x, int y, int direction, int size)
     : Bug(id, x, y, direction, size)
-    {this->type = "Crawler";}
+    {this->type = "Crawler\t\t";}
 
 void Crawler::move() {
     if(alive){
@@ -22,7 +22,9 @@ void Crawler::move() {
         }
 
         setPosition(pos);
-        getPath().push_back(pos);
+        list<pair<int,int>> newPath = getPath();
+        newPath.push_back(pos);
+        setPath(newPath);
     }
 }
 

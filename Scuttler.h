@@ -11,7 +11,6 @@ protected:
 public:
     Scuttler(int id, int x, int y, int direction, int size);
     string toString();
-    string historyToString();
 
     ~Scuttler();
 };
