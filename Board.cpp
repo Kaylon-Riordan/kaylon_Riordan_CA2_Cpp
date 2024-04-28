@@ -220,11 +220,9 @@ void Board::OutputFileStream(){ //cod for outputting to file from: https://githu
 
 void Board::Graphics(){// code for sfml window based on: https://github.com/delboy8080/SFML_Sample2/blob/master/main.cpp
     srand(time(NULL));
-    bugs.push_back(new SuperBug(500,4,2,1,500));
+    bugs.push_back(new SuperBug(500,5,2,1,500));
     sf::RenderWindow window(sf::VideoMode(1000, 1000), "SFML works!");
-    sf::CircleShape character(40);
-    character.setPosition(507.5,207.5);
-    character.setFillColor(sf::Color::Blue);
+    vector<sf::CircleShape> characters;
     vector<sf::RectangleShape> squares;
     for(int x = 0; x < 10;x ++)
     {
@@ -238,24 +236,6 @@ void Board::Graphics(){// code for sfml window based on: https://github.com/delb
         }
     }
 
-    vector<sf::CircleShape> NPCs;
-    for(Bug* bugP : bugs){
-        if(bugP->getAlive() && bugP->getType() != "SuperBug"){
-            sf::CircleShape NPC(40);
-            NPC.setPosition(bugP->getPosition().first*100+7.5,bugP->getPosition().second*100+7.5);
-            if(bugP->getType() == "Crawler\t\t"){
-                NPC.setFillColor(sf::Color::Yellow);
-            }
-            else if(bugP->getType() == "Hopper\t\t"){
-                NPC.setFillColor(sf::Color::Green);
-            }
-            else {
-                NPC.setFillColor(sf::Color::Red);
-            }
-            NPCs.push_back(NPC);
-        }
-    }
-
     while (window.isOpen())
     {
         sf::Event event;
@@ -265,43 +245,83 @@ void Board::Graphics(){// code for sfml window based on: https://github.com/delb
                 window.close();
             if(event.type == sf::Event::KeyReleased)
             {
-                int x = character.getPosition().x;
-                int y = character.getPosition().y;
                 if(event.key.code == sf::Keyboard::Up)
                 {
-                    if(y> 100)
-                        character.setPosition(x, y-100);
+                    for(Bug* bugP : bugs){
+                        if(bugP->getType() == "SuperBug") {
+                            bugP->setDirection(1);
+                            if(!bugP->isWayBlocked()){
+                                movementPhase();
+                            }
+                        }
+                    }
                 }
                 if(event.key.code == sf::Keyboard::Down)
                 {
-                    if(y<900 )
-                        character.setPosition(x, y+100);
+
+                    for(Bug* bugP : bugs){
+                        if(bugP->getType() == "SuperBug") {
+                            bugP->setDirection(3);
+                            if(!bugP->isWayBlocked()){
+                                movementPhase();
+                            }
+                        }
+                    }
                 }
                 if(event.key.code == sf::Keyboard::Left)
                 {
-                    if(x> 100)
-                        character.setPosition(x-100, y);
+                    for(Bug* bugP : bugs){
+                        if(bugP->getType() == "SuperBug") {
+                            bugP->setDirection(4);
+                            if(!bugP->isWayBlocked()){
+                                movementPhase();
+                            }
+                        }
+                    }
                 }
                 if(event.key.code == sf::Keyboard::Right)
                 {
-                    if(x<900)
-                        character.setPosition(x+100, y);
+                    for(Bug* bugP : bugs){
+                        if(bugP->getType() == "SuperBug") {
+                            bugP->setDirection(2);
+                            if(!bugP->isWayBlocked()){
+                                movementPhase();
+                            }
+                        }
+                    }
                 }
             }
         }
-
+        characters.clear();
+        for(Bug* bugP : bugs){
+            if(bugP->getAlive()){
+                sf::CircleShape O(40);
+                O.setPosition(bugP->getPosition().first*100+7.5,bugP->getPosition().second*100+7.5);
+                if(bugP->getType() == "Crawler\t\t"){
+                    O.setFillColor(sf::Color::Yellow);
+                }
+                else if(bugP->getType() == "Hopper\t\t"){
+                    O.setFillColor(sf::Color::Green);
+                }
+                else if(bugP->getType() == "Scuttler\t"){
+                    O.setFillColor(sf::Color::Red);
+                }
+                else {
+                    O.setFillColor(sf::Color::Blue);
+                }
+                characters.push_back(O);
+            }
+        }
         window.clear(sf::Color::White);
         for(sf::RectangleShape sh:squares)
         {
             window.draw(sh);
         }
-        for(sf::CircleShape NPC:NPCs)
+        for(sf::CircleShape O:characters)
         {
-            window.draw(NPC);
+            window.draw(O);
         }
-        window.draw(character);
         window.display();
-
     }
 }
 

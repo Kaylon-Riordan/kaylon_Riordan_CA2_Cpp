@@ -21,7 +21,6 @@ protected:
     bool alive;
     list<pair<int,int>> path;
     int eatenBy;
-    virtual bool isWayBlocked();
 
 public:
     string getType() const;
@@ -40,6 +39,7 @@ public:
     void setPath(list<pair<int,int>> path);
     int getEatenBy() const;
     void setEatenBy(int eatenBy);
+    virtual bool isWayBlocked();
     virtual void move() = 0;
     virtual string toString();
     string historyToString();
