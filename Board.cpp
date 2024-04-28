@@ -1,6 +1,5 @@
 #include "Board.h"
 
-
 Board::Board()
 {
     this->bugs = inputFileStream("bugs.txt");
@@ -221,21 +220,38 @@ void Board::OutputFileStream(){ //cod for outputting to file from: https://githu
 
 void Board::Graphics(){// code for sfml window based on: https://github.com/delboy8080/SFML_Sample2/blob/master/main.cpp
     srand(time(NULL));
-
     sf::RenderWindow window(sf::VideoMode(1000, 1000), "SFML works!");
     sf::CircleShape character(40);
-    character.setPosition(407.5,407.5);
-    character.setFillColor(sf::Color::Red);
+    character.setPosition(507.5,207.5);
+    character.setFillColor(sf::Color::Blue);
     vector<sf::RectangleShape> squares;
-    for(int x = 0; x < 160;x ++)
+    for(int x = 0; x < 10;x ++)
     {
-        for(int y=0; y<160;y++)
+        for(int y=0; y<10;y++)
         {
             sf::RectangleShape cell(sf::Vector2f(100,100));
             cell.setPosition(x*100, y*100);
             cell.setOutlineThickness(5);
             cell.setOutlineColor(sf::Color::Black);
             squares.push_back(cell);
+        }
+    }
+
+    vector<sf::CircleShape> NPCs;
+    for(Bug* bugP : bugs){
+        if(bugP->getAlive()){
+            sf::CircleShape NPC(40);
+            NPC.setPosition(bugP->getPosition().first*100+7.5,bugP->getPosition().second*100+7.5);
+            if(bugP->getType() == "Crawler\t\t"){
+                NPC.setFillColor(sf::Color::Yellow);
+            }
+            else if(bugP->getType() == "Hopper\t\t"){
+                NPC.setFillColor(sf::Color::Green);
+            }
+            else {
+                NPC.setFillColor(sf::Color::Red);
+            }
+            NPCs.push_back(NPC);
         }
     }
 
@@ -270,42 +286,17 @@ void Board::Graphics(){// code for sfml window based on: https://github.com/delb
                     if(x<900)
                         character.setPosition(x+100, y);
                 }
-                if(event.key.code == sf::Keyboard::Space)
-                {
-                    for(sf::RectangleShape &sh:squares)
-                    {
-                        if(x == sh.getPosition().x
-                           && y ==sh.getPosition().y )
-                        {
-                            sh.setFillColor(sf::Color::Green);
-                        }
-                    }
-                }
-
-
             }
-            if(event.type == sf::Event::MouseButtonReleased)
-            {
-                int x = event.mouseButton.x;
-                int y = event.mouseButton.y;
-
-                for(sf::RectangleShape &sh:squares)
-                {
-                    if(x >= sh.getPosition().x&&x < sh.getPosition().x+10
-                       && y >=sh.getPosition().y&&y < sh.getPosition().y+10 )
-                    {
-                        sh.setFillColor(sf::Color::Green);
-                    }
-                }
-            }
-
         }
-
 
         window.clear(sf::Color::White);
         for(sf::RectangleShape sh:squares)
         {
             window.draw(sh);
+        }
+        for(sf::CircleShape NPC:NPCs)
+        {
+            window.draw(NPC);
         }
         window.draw(character);
         window.display();
