@@ -1,6 +1,6 @@
 #include "Bug.h"
 
-Bug::Bug(int id, int x, int y, int direction, int size)
+Bug::Bug(int id, int x, int y, int direction, int size) // constructor
 {
     this->id = id;
     this->position.first = x;
@@ -12,7 +12,7 @@ Bug::Bug(int id, int x, int y, int direction, int size)
     this->eatenBy = 0;
 }
 
-bool Bug::isWayBlocked(){
+bool Bug::isWayBlocked(){ // check if they are facing the edge they are on
     if(direction == 1 && position.second == 0){
         return true;
     }
@@ -86,7 +86,7 @@ void Bug::setEatenBy(int eatenBy){
     Bug::eatenBy = eatenBy;
 }
 
-string Bug::toString(){
+string Bug::toString(){ // print all the details about the bug
     string dir;
     switch(direction) {
         case 1: dir = "North"; break;
@@ -103,7 +103,7 @@ string Bug::toString(){
     return str;
 }
 
-string Bug::historyToString(){
+string Bug::historyToString(){ // print the bugs history and current status, (alive, or who it was eaten by)
     string live = "Alive!";
     if(!alive){live = "Eaten by " + to_string(eatenBy);}
 

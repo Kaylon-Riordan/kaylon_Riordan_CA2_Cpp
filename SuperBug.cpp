@@ -4,7 +4,7 @@ SuperBug::SuperBug(int id, int x, int y, int direction, int size)
         : Bug(id, x, y, direction, size)
 {this->type = "SuperBug";}
 
-void SuperBug::move() {
+void SuperBug::move() { // set it to move like a crawler
     pair<int, int> pos = getPosition();
 
     switch(direction) {

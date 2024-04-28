@@ -4,7 +4,7 @@ Scuttler::Scuttler(int id, int x, int y, int direction, int size)
         : Bug(id, x, y, direction, size)
 {this->type = "Scuttler\t";}
 
-bool Scuttler::isWayBlocked(){
+bool Scuttler::isWayBlocked(){ // change is way blocked to check diagonals
     if(direction == 1 && (position.second == 0 || position.first == 9)){
         return true;
     }
@@ -31,7 +31,7 @@ void Scuttler::move() {
             direction = 1 + (rand() % 4);
         }
 
-        switch(direction) {
+        switch(direction) { // move one space diagonally
             case 1: pos.second --; pos.first ++; break;
             case 2: pos.first ++; pos.second ++; break;
             case 3: pos.second ++; pos.first --; break;
@@ -46,7 +46,7 @@ void Scuttler::move() {
     }
 }
 
-string Scuttler::toString(){
+string Scuttler::toString(){ // change to sting to show diagonal directions
     string dir;
     switch(direction) {
         case 1: dir = "North-East"; break;

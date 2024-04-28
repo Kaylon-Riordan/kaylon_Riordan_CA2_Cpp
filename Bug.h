@@ -1,7 +1,7 @@
 #ifndef KAYLON_RIORDAN_CA3_CPP_BUG_H
 #define KAYLON_RIORDAN_CA3_CPP_BUG_H
 
-#include <list>
+#include <list> // put most includes in bug.h as every file is connected back to this one
 #include <string>
 #include <utility>
 #include <iostream>
@@ -11,9 +11,9 @@ using namespace std;
 
 class Bug {
 protected:
-    Bug(int id, int x, int y, int direction, int size);
+    Bug(int id, int x, int y, int direction, int size); // constructor
 
-    string type;
+    string type; // attributes of bug
     int id;
     pair<int, int> position;
     int direction;
@@ -23,7 +23,7 @@ protected:
     int eatenBy;
 
 public:
-    string getType() const;
+    string getType() const; // getters and setters
     void setType(string Type);
     int getId() const;
     void setId(int id);
@@ -39,8 +39,8 @@ public:
     void setPath(list<pair<int,int>> path);
     int getEatenBy() const;
     void setEatenBy(int eatenBy);
-    virtual bool isWayBlocked();
-    virtual void move() = 0;
+    virtual bool isWayBlocked(); // virtual methods that can be overwritten
+    virtual void move() = 0; // true virtual method that has to be overwritten
     virtual string toString();
     string historyToString();
 

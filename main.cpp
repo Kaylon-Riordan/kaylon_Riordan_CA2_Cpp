@@ -10,7 +10,7 @@ int main() {
                 "\n3. Find a Bug\n4. Tap the Bug Board\n5. Display Life History of all Bugs"
                 "\n6. Display all Cells listing their Bugs\n7. Run simulation\n8. Exit program"
                 "\n9. Run SFML graphics\nInput:";
-        cin >> in;
+        cin >> in; // display options menu and take user input, then run matching method in board
 
         switch(in) {
             case 1:

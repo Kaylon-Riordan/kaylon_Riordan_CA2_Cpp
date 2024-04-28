@@ -13,7 +13,7 @@ void Hopper::move() {
             direction = 1 + (rand() % 4);
         }
 
-        switch(direction) {
+        switch(direction) { // hop the hop length in the right direction, and stop if it hits a wall
             case 1:
                 pos.second = pos.second - hopLength;
                 if(pos.second < 0){pos.second = 0;}
@@ -48,7 +48,7 @@ void Hopper::setHopLength(int hopLength){
     Hopper::hopLength = hopLength;
 }
 
-string Hopper::toString(){
+string Hopper::toString(){ // change to sting to print the hop length
     string dir;
     switch(direction) {
         case 1: dir = "North"; break;
