@@ -4,11 +4,9 @@
 #include "Bug.h"
 
 class Crawler : public Bug {
-protected:
-    void move();
-
 public:
     Crawler(int id, int x, int y, int direction, int size);
+    void move();
 
     ~Crawler();
 };

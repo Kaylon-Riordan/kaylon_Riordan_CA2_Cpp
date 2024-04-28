@@ -7,11 +7,9 @@ class Hopper : public Bug {
 private:
     int hopLength;
 
-protected:
-    void move();
-
 public:
     Hopper(int id, int x, int y, int direction, int size, int hopLength);
+    void move();
     int getHopLength() const;
     void setHopLength(int hopLength);
     string toString();

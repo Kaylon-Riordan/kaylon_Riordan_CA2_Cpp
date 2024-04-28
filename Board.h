@@ -8,6 +8,7 @@
 #include "Crawler.h"
 #include "Hopper.h"
 #include "Scuttler.h"
+#include "SuperBug.h"
 
 class Board {
 private:

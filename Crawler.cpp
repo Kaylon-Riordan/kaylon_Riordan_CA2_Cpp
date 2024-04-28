@@ -1,7 +1,7 @@
 #include "Crawler.h"
 
 Crawler::Crawler(int id, int x, int y, int direction, int size)
-    : Bug(id, x, y, direction, size)
+        : Bug(id, x, y, direction, size)
     {this->type = "Crawler\t\t";}
 
 void Crawler::move() {

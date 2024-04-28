@@ -14,6 +14,8 @@ add_executable(kaylon_Riordan_CA3_Cpp main.cpp
         Board.cpp
         Scuttler.cpp
         Scuttler.h
+        SuperBug.cpp
+        SuperBug.h
 )
 
 set(SFML_STATIC_LIBRARIES TRUE)

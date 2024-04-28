@@ -5,11 +5,11 @@
 
 class Scuttler : public Bug {
 protected:
-    void move();
     bool isWayBlocked();
 
 public:
     Scuttler(int id, int x, int y, int direction, int size);
+    void move();
     string toString();
 
     ~Scuttler();

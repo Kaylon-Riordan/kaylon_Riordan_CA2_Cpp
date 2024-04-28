@@ -220,6 +220,9 @@ void Board::OutputFileStream(){ //cod for outputting to file from: https://githu
 
 void Board::Graphics(){// code for sfml window based on: https://github.com/delboy8080/SFML_Sample2/blob/master/main.cpp
     srand(time(NULL));
+
+    bugs.push_back(new SuperBug(500,4,2,1,500));
+
     sf::RenderWindow window(sf::VideoMode(1000, 1000), "SFML works!");
     sf::CircleShape character(40);
     character.setPosition(507.5,207.5);
@@ -238,21 +241,40 @@ void Board::Graphics(){// code for sfml window based on: https://github.com/delb
     }
 
     vector<sf::CircleShape> NPCs;
-    for(Bug* bugP : bugs){
-        if(bugP->getAlive()){
-            sf::CircleShape NPC(40);
-            NPC.setPosition(bugP->getPosition().first*100+7.5,bugP->getPosition().second*100+7.5);
-            if(bugP->getType() == "Crawler\t\t"){
-                NPC.setFillColor(sf::Color::Yellow);
+    int living =100;
+    while(living > 0){
+        NPCs.clear();
+        living = 0;
+        for(Bug* bugP : bugs){
+            if(bugP->getAlive() && bugP->getType() != "SuperBug"){
+                living++;
+                sf::CircleShape NPC(40);
+                NPC.setPosition(bugP->getPosition().first*100+7.5,bugP->getPosition().second*100+7.5);
+                if(bugP->getType() == "Crawler\t\t"){
+                    NPC.setFillColor(sf::Color::Yellow);
+                }
+                else if(bugP->getType() == "Hopper\t\t"){
+                    NPC.setFillColor(sf::Color::Green);
+                }
+                else {
+                    NPC.setFillColor(sf::Color::Red);
+                }
+                NPCs.push_back(NPC);
             }
-            else if(bugP->getType() == "Hopper\t\t"){
-                NPC.setFillColor(sf::Color::Green);
-            }
-            else {
-                NPC.setFillColor(sf::Color::Red);
-            }
-            NPCs.push_back(NPC);
         }
+        window.clear(sf::Color::White);
+        for(sf::RectangleShape sh:squares)
+        {
+            window.draw(sh);
+        }
+        for(sf::CircleShape NPC:NPCs)
+        {
+            window.draw(NPC);
+        }
+        window.draw(character);
+        window.display();
+        movementPhase();
+        Sleep(10000);
     }
 
     while (window.isOpen())
@@ -288,19 +310,6 @@ void Board::Graphics(){// code for sfml window based on: https://github.com/delb
                 }
             }
         }
-
-        window.clear(sf::Color::White);
-        for(sf::RectangleShape sh:squares)
-        {
-            window.draw(sh);
-        }
-        for(sf::CircleShape NPC:NPCs)
-        {
-            window.draw(NPC);
-        }
-        window.draw(character);
-        window.display();
-
     }
 }
 
